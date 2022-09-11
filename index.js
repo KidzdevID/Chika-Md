@@ -27,47 +27,16 @@ const { FajarNews, BBCNews, metroNews, CNNNews, iNews, KumparanNews, TribunNews,
 // Function
 const cerpen = require('./lib/cerpen')
 
-// Read Database
-let tebaklagu = db.data.game.tebaklagu = []
-let _family100 = db.data.game.family100 = []
-let kuismath = db.data.game.math = []
-let tebakgambar = db.data.game.tebakgambar = []
-let tebakkata = db.data.game.tebakkata = []
-let caklontong = db.data.game.lontong = []
-let caklontong_desk = db.data.game.lontong_desk = []
-let tebakkalimat = db.data.game.kalimat = []
-let tebaklirik = db.data.game.lirik = []
-let tebaktebakan = db.data.game.tebakan = []
 let vote = db.data.others.vote = []
 
 // Language
 const  { ind } = require(`./language`)
 lang = ind // Language
 
-// Type Menu
-typemenu = 'image'
 
 // Date
 moment.tz.setDefault("Asia/Jakarta").locale("id");
 
-module.exports = chika = async (chika, m, chatUpdate, store) => {
-    try {
-        var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
-        var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#" : prefa ?? global.prefix
-        const isCmd = body.startsWith(prefix)
-        const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
-        const args = body.trim().split(/ +/).slice(1)
-        const pushname = m.pushName || "No Name"
-        const botNumber = await chika.decodeJid(chika.user.id)
-        const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const itsMe = m.sender == botNumber ? true : false
-        const text = q = args.join(" ")
-        const quoted = m.quoted ? m.quoted : m
-        const mime = (quoted.msg || quoted).mimetype || ''
-	    const isMedia = /image|video|sticker|audio/.test(mime)
-	    const from = mek.key.remoteJid
-	
         // Time & Date
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
         const wita = moment(Date.now()).tz('Asia/Makassar').locale('id').format('HH:mm:ss z')
